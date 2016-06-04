@@ -13,6 +13,7 @@ python:
   - pypy
   - pypy3
 
+# Python version
 build:
   ci:
     - python --version
