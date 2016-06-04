@@ -1,14 +1,15 @@
 jobs:
   - job:
-      name: job1
-      type: build
-      steps:
-        - GET resource1
+      name : api
+      type : manifest
+      steps :
         - GET resource2
-  
+        - PUT resource2
+        - ACT resource2
   - job:
-      name: job2
-      type: build
-      steps:
-        - GET resource1
-        - GET resource2
+      name : www
+      type : manifest
+      steps :
+        - GET resource3
+        - PUT resource3
+        - ACT resource3
