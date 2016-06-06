@@ -5,4 +5,10 @@ resources:
     integration: pranay-docker
     source:
       name : "shipimg/api"
-    isPull: false
+      isPull: false
+  - name: wwwImage
+    type: image
+    integration: pranay-docker
+    source:
+      name : "shipimg/www"
+      isPull: true
