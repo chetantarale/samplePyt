@@ -16,5 +16,5 @@ resources:
     type: gitRepo
     integration: github
     source:
-      name: "pranaypareek/samplePyt"
+      name: "pranaypareek/sample_python"
       branch: shaData
