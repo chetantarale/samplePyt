@@ -4,11 +4,17 @@ resources:
     type: image
     integration: pranay-docker
     source:
-      name : "shipimg/api"
+      name: "shipimg/api"
       isPull: false
   - name: wwwImage
     type: image
     integration: pranay-docker
     source:
-      name : "shipimg/www"
+      name: "shipimg/www"
       isPull: true
+  - name: samplePyt
+    type: gitRepo
+    integration: github
+    source:
+      name: "pranaypareek/samplePyt"
+      branch: shaData
