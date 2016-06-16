@@ -7,7 +7,7 @@ python:
 
 build:
   ci:
-    - export MESSAGE_FROM_CI="Hola, amigo."
+    - MESSAGE_FROM_CI="Hola, amigo."
     - python --version
 
 integrations:
