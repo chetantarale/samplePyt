@@ -7,6 +7,7 @@ python:
 
 build:
   ci:
+    - export MESSAGE_FROM_CI="Hola, amigo."
     - python --version
 
 integrations:
@@ -40,7 +41,7 @@ integrations:
       type: webhook
       payload:
         - title=Success - $REPO_FULL_NAME - $BUILD_NUMBER
-        - body=Shippable Run $BUILD_NUMBER ($BUILD_URL) succeeded for $COMPARE_URL
+        - body=Shippable Run $BUILD_NUMBER ($BUILD_URL) succeeded for $COMPARE_URL with message $MESSAGE_FROM_CI
       branches:
         only:
           - master
