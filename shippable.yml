@@ -7,7 +7,7 @@ python:
 
 build:
   ci:
-    - MESSAGE_FROM_CI="Hola, amigo."
+    - MESSAGE_FROM_CI="[This is a message from the Shippable CI section]"
     - python --version
 
 integrations:
