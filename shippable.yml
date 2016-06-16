@@ -6,9 +6,15 @@ python:
   - 2.7
 
 build:
+  pre_ci:
+    - PRE_CI_MESSAGE="[From PRE CI]"
+
   ci:
     - MESSAGE_FROM_CI="[This is a message from the Shippable CI section]"
     - python --version
+
+  post_ci:
+    - POST_CI_MESSAGE="[From POST CI]"
 
 integrations:
   notifications:
@@ -16,7 +22,7 @@ integrations:
       type: webhook
       payload:
         - title=Success - $REPO_FULL_NAME - $BUILD_NUMBER
-        - body=Shippable Run $BUILD_NUMBER ($BUILD_URL) succeeded for $COMPARE_URL with message $MESSAGE_FROM_CI
+        - body=Shippable Run $BUILD_NUMBER ($BUILD_URL) succeeded for $COMPARE_URL with message $MESSAGE_FROM_CI Pre ($PRE_CI_MESSAGE) & Post ($POST_CI_MESSAGE)
       branches:
         only:
           - master
