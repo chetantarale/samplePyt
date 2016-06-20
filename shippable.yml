@@ -26,5 +26,5 @@ integrations:
         only:
           - master
           - notifications_for_postCI_singleJob
-      on_success: always
+      on_success: never
       on_start: always
