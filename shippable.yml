@@ -13,6 +13,7 @@ build:
 
   post_ci:
     - POST_CI_MESSAGE="[- This is from POST CI]"
+    - HELLO_WORLD="Hello World!"
 
 integrations:
   notifications:
