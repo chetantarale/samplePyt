@@ -8,7 +8,12 @@ python:
 
 build:
   ci:
+    - MESSAGE_FROM_CI="[- This is a message from the Shippable CI section]"
+    - ANOTHER_MESSAGE_FROM_CI="[- Another message from the Shippable CI section]"
     - python --version
+
+  post_ci:
+    - POST_CI_MESSAGE="[- This is from POST CI]"
 
 integrations:
   notifications:
@@ -21,6 +26,8 @@ integrations:
         - CONTAINER_NAME=$SHIPPABLE_CONTAINER_NAME
         - FOO=bar
         - FIZZ=buzz
+        - CI_MESSAGE=$MESSAGE_FROM_CI
+        - CI_MESSAGE_POST=$POST_CI_MESSAGE
       branches:
         only:
           - master
@@ -35,6 +42,8 @@ integrations:
         - CONTAINER_NAME=$SHIPPABLE_CONTAINER_NAME
         - FOO=bar
         - FIZZ=buzz
+        - CI_MESSAGE=$MESSAGE_FROM_CI
+        - CI_MESSAGE_POST=$POST_CI_MESSAGE
       branches:
         only:
           - master
@@ -46,6 +55,8 @@ integrations:
         - NEXT_PROJECT=true
         - IS_LEGACY=$SHIPPABLE_IS_LEGACY_IMAGE
         - RETRY_INTERVAL=$SHIPPABLE_API_RETRY_INTERVAL
+        - CI_MESSAGE=$MESSAGE_FROM_CI
+        - CI_MESSAGE_POST=$POST_CI_MESSAGE
       branches:
         only:
           - master
@@ -55,7 +66,12 @@ integrations:
       type: webhook
       payload:
         - title=Success - $REPO_FULL_NAME - $BUILD_NUMBER
-        - body=Shippable Run $BUILD_NUMBER ($BUILD_URL) succeeded for $COMPARE_URL
+        - body=Shippable Run $BUILD_NUMBER ($BUILD_URL) succeeded for $COMPARE_URL with $MESSAGE_FROM_CI & $POST_CI_MESSAGE & $ANOTHER_MESSAGE_FROM_CI
+      branches:
+        only:
+          - master
+          - notifications_for_postCI_singleJob
+
       branches:
         only:
           - master
