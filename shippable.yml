@@ -20,7 +20,7 @@ integrations:
       type: webhook
       payload:
         - title=Success - $REPO_FULL_NAME - $BUILD_NUMBER
-        - body=Shippable Run $BUILD_NUMBER ($BUILD_URL) succeeded for $COMPARE_URL with $MESSAGE_FROM_CI & $POST_CI_MESSAGE & $ANOTHER_MESSAGE_FROM_CI
+        - body=Shippable Run $BUILD_NUMBER ($BUILD_URL) succeeded for $COMPARE_URL with $MESSAGE_FROM_CI & $POST_CI_MESSAGE & $ANOTHER_MESSAGE_FROM_CI HELLO_WORLD
       branches:
         only:
           - master
