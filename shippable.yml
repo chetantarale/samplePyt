@@ -13,6 +13,10 @@ python:
   - pypy
   - pypy3
 
+env:
+ - FOO=foo BAR=bar
+ - FOO=bar BAR=foo
+
 build:
   ci:
     - python --version
